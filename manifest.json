@@ -1,0 +1,19 @@
+{
+  "name": "UrlParamToggle",
+  "description": "This экстеншен позволяет по keyboard shortcut (hotkeys) добавить либо убрать заранее определенные параметры в адресной строке броузера",
+  "version": "0.1",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Открыть index.html"
+    }
+  }
+}
