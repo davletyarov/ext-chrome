@@ -1,10 +1,10 @@
-chrome.commands.onCommand.addListener(function (command) {
-    if (command === 'toggle-pin') {
+chrome.commands.onCommand.addListener(cmd => {
+    if ('toggle-pin' === cmd) {
         // выбираю текущую вкладку
-        chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-            let currentTab = tabs[0];
+        chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+            let tab = tabs[0];
 
-            let url = new URL(currentTab.url);
+            let url = new URL(tab.url);
 
             // переключаем наш параметр
             if (url.searchParams.has('clear_cache')) {
@@ -14,9 +14,7 @@ chrome.commands.onCommand.addListener(function (command) {
             }
 
             // обновляем адресную строку текущей вкладки
-            chrome.tabs.query({active: true}, (tabs) => {
-                chrome.tabs.update(currentTab.id, {url: url.toString()});
-            });
+            chrome.tabs.query({active: true}, tabs => chrome.tabs.update(tab.id, {url: url.toString()}));
         });
     }
 });
