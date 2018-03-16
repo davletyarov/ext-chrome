@@ -15,7 +15,7 @@
   "commands": {
     "toggle-pin": {
       "suggested_key": {
-        "default": "Alt+Shift+L"
+        "default": "Ctrl+Shift+L"
       },
       "description": "Переключаем наш параметр"
     }
